@@ -36,8 +36,6 @@ def main():
             if event.type == pygame.QUIT:
                 return
         screen.fill((0, 0, 0))
-        for object in drawable:
-            object.draw(screen)
         for object in updatable:
             object.update(dt)
         for shot in shots:
@@ -51,6 +49,8 @@ def main():
             if player.collides_with(astroid):
                 print("Game Over!")
                 return
+        for object in drawable:
+            object.draw(screen)
         pygame.display.flip()
         dt = (clock.tick(60) / 1000)
 
